@@ -1,79 +1,75 @@
 @import "../../assets/stylesheets/base/colors";
-
-.wrapper{
-  margin: 10px 0;
-  padding: 10px;
-  border: 1px solid #aaaaaa;
-  background: #f8f8f8;
-  border-radius: 5px;
+.wrapper {
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #aaaaaa;
+    background: #f8f8f8;
+    border-radius: 5px;
 }
 
-.head{
-  display: flex;
-  justify-content: space-between;
+.head {
+    display: flex;
+    justify-content: space-between;
 }
 
-.body{
-  display: flex;
-  justify-content: space-between;
+.body {
+    display: flex;
+    justify-content: space-between;
 }
 
-.name{
-  margin-top: 0;
-  margin-bottom: 6px;
-  color: #5bb7db;
-  font-size: 16px;
-  font-weight: 700;
+.name {
+    margin-top: 0;
+    margin-bottom: 6px;
+    color: #5bb7db;
+    font-size: 16px;
+    font-weight: 700;
 }
 
-.url{
-  margin-top: 2px;
-  margin-bottom: 2px;
-  color: #aaaaaa;
-  font-weight: 500;
+.url {
+    margin-top: 2px;
+    margin-bottom: 2px;
+    color: #aaaaaa;
+    font-weight: 500;
 }
 
-.toolbar{
-  display: flex;
-  justify-content: right;
+.toolbar {
+    display: flex;
+    justify-content: right;
 }
 
-.expander{
-  margin-left: 10px;
-  margin-top: 7px;
-
-  background: none;
-  border: none;
-  position: relative;
-
-  cursor: pointer;
-  outline: none;
-
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    border-left: 7px solid transparent;
-    border-right: 7px solid transparent;
-  }
-
-  &:not(.expanded){
+.expander {
+    margin-left: 10px;
+    margin-top: 7px;
+    background: none;
+    border: none;
+    position: relative;
+    cursor: pointer;
+    outline: none;
     &::before {
-      border-bottom: 7px solid $text-color;
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        border-left: 7px solid transparent;
+        border-right: 7px solid transparent;
     }
-  }
-
-  &.expanded{
-    &::before {
-      border-top: 7px solid $text-color;
+    &:not(.expanded) {
+        &::before {
+            border-bottom: 7px solid $text-color;
+        }
     }
-  }
+    &.expanded {
+        &::before {
+            border-top: 7px solid $text-color;
+        }
+    }
 }
 
-.blocks-wrapper{
-  margin: 20px 0;
-  text-align: center;
-  color: $danger-color;
-  font-weight: 700;
+.blocks-wrapper {
+    background-color: rgb(170, 168, 168);
+    color: white;
+    border: 2px solid;
+    border-radius: 2%;
+    margin: 0px;
+    padding: 10px;
 }

@@ -14,6 +14,7 @@ export class NodesComponent implements OnInit {
 
   ngOnInit() {
     this.store.getStatus();
+    this.store.getBlock();
   }
 
   ToogleExpand(node: Node): void {

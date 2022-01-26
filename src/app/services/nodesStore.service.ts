@@ -41,4 +41,42 @@ export class NodesStore extends Store<Node[]> {
 
     return forkJoin(status);
   }
+
+  public getBlock() {
+    this._getBlock().subscribe((value: any) => {
+      this.setState(this.state.map(node => {
+        const nodeBlocks = value.find(block => block.node_url === node.url);
+        return {
+          ...node,
+          blocks: nodeBlocks ? nodeBlocks.blocks : []
+        };
+      }));
+    });
+  }
+
+  public _getBlock() {
+    const block = this.state.map(node => {
+      const res = this.api.get(`${node.url}/api/v1/blocks`);
+      return res.pipe(
+        catchError(error => {
+          return of({
+            block: false
+          });
+        }
+        ),
+        // tslint:disable-next-line: no-shadowed-variable
+        map(({data}) => {
+          if ( data ) {
+            return {
+              blocks: data,
+              node_url: node.url
+            };
+          } else {
+            return {};
+          }
+        })
+      );
+    });
+    return forkJoin(block);
+  }
 }
